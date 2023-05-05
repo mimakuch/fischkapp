@@ -1,0 +1,14 @@
+{
+  "name": "fischkapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mimakuch/fischkapp.git",
+  "author": "Michal Makuch <michalmakuch@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "sass": "node-sass -w sass/ -o css/ --recursive"
+  },
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
