@@ -1,0 +1,42 @@
+
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background: $thirdColor
+  font-family: $primaryFont
+  padding-left: 16px
+  padding-right: 16px
+  box-shadow: 0 0 34px rgba(152, 163, 207, 0.2)
+  height: 60px
+
+  &__title
+    font-style: normal
+    font-weight: 600
+    font-size: 20px
+    line-height: 23px
+    text-align: center
+    letter-spacing: 0.07em
+    text-transform: uppercase
+
+  &__counter
+    color: $secondaryColor
+    width: 13px
+    height: 25px
+    font-family: &primaryFont
+    font-style: normal
+    font-weight: 600
+    font-size: 21px
+    line-height: 25px
+    margin-left: 5px
+
+  &__button
+    width: 40px
+    height: 40px
+    border: none
+    background: none
+    cursor: pointer
+
+  &__button:hover
+    transform: scale(0.95)
