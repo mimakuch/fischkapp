@@ -2,6 +2,7 @@ import { createState } from "./data/createState.js";
 // import { createCardComponent } from "./ui/card.js";
 // import { addCard } from "./data/actions.js";
 import {createHeaderComponent} from "./ui/header.js";
+import {createAddCardComponent} from "./ui/addCard";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Example of how we can create app state responsible for holding data
@@ -17,9 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonClass: 'header__button',
   });
 
+  const newCard = createAddCardComponent({
+    newCardClass: 'card',
+  });
+
   const app = document.getElementById("app") as HTMLDivElement;
 
   app.appendChild(header.render());
+  app.appendChild(newCard.render());
 
   console.log(`You have ${appState.flashcards.length} card/s.`);
 });
