@@ -1,6 +1,7 @@
-import {createButtonComponent} from "./button";
+import {createButtonComponent} from "./button.js";
 
 interface AddCardParams {
+    cardWrapperClass: string;
     newCardClass: string;
     frontSideClass: string;
     inputClass: string;
@@ -9,11 +10,14 @@ interface AddCardParams {
     backSideClass: string;
     deleteWrapperClass: string;
     inputValueClass: string;
+    deleteButtonClass: string;
     deleteIconClass: string;
+    iconPath: string;
 }
 
 export const createAddCardComponent = (params: AddCardParams): {render: () => HTMLElement} => {
 
+    const cardWrapper = document.createElement('div')
     const newCard = document.createElement('div');
 
     // FRONT SIDE OF THE CARD
@@ -34,6 +38,7 @@ export const createAddCardComponent = (params: AddCardParams): {render: () => HT
     const backSide = document.createElement('div');
     const deleteWrapper = document.createElement('div');
     const inputValue = document.createElement('span');
+    const deleteButton = document.createElement('button')
     const deleteIcon = document.createElement('img');
     const backInput = document.createElement('input');
     const backHorizontalLine = document.createElement('hr');
@@ -48,6 +53,7 @@ export const createAddCardComponent = (params: AddCardParams): {render: () => HT
     });
 
     // LIST OF CLASSES
+    cardWrapper.classList.add(params.cardWrapperClass);
     newCard.classList.add(params.newCardClass);
     frontSide.classList.add(params.frontSideClass);
     frontInput.classList.add(params.inputClass);
@@ -56,12 +62,14 @@ export const createAddCardComponent = (params: AddCardParams): {render: () => HT
     backSide.classList.add(params.backSideClass);
     deleteWrapper.classList.add(params.deleteWrapperClass);
     inputValue.classList.add(params.inputValueClass);
+    deleteButton.classList.add(params.deleteButtonClass);
     deleteIcon.classList.add(params.deleteIconClass);
     backInput.classList.add(params.inputClass);
     backHorizontalLine.classList.add(params.lineClass);
     backButtonsWrapper.classList.add(params.wrapperClass);
 
     // CONNECTING PARTS OF THE COMPONENT
+    cardWrapper.appendChild(newCard);
     newCard.appendChild(frontSide);
     newCard.appendChild(backSide);
     frontSide.appendChild(frontInput);
@@ -71,12 +79,17 @@ export const createAddCardComponent = (params: AddCardParams): {render: () => HT
     frontButtonsWrapper.appendChild(nextButton.render());
     backSide.appendChild(deleteWrapper);
     deleteWrapper.appendChild(inputValue);
-    deleteWrapper.appendChild(deleteIcon);
+    deleteWrapper.appendChild(deleteButton);
+    deleteButton.appendChild(deleteIcon);
     backSide.appendChild(backInput);
     backSide.appendChild(backHorizontalLine);
     backSide.appendChild(backButtonsWrapper);
     backButtonsWrapper.appendChild(backButton.render());
     backButtonsWrapper.appendChild(saveButton.render());
+
+
+    inputValue.innerText = frontInput.value;
+    deleteIcon.src = params.iconPath;
 
     const render = () => {
         return newCard;
@@ -84,5 +97,5 @@ export const createAddCardComponent = (params: AddCardParams): {render: () => HT
 
     return {
         render,
-    }
+    };
 }

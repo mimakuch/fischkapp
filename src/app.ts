@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const newCard = createAddCardComponent({
+    cardWrapperClass: 'card__wrapper',
     newCardClass: 'card',
     frontSideClass: 'card__front',
     inputClass: 'card__input',
@@ -28,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     deleteWrapperClass: 'card__delete',
     inputValueClass: 'card__delete--input',
     deleteIconClass: 'card__delete--icon',
+    deleteButtonClass: 'card__delete--button',
+    iconPath: './img/icon-delete.svg',
   });
 
   const app = document.getElementById("app") as HTMLDivElement;
