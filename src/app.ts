@@ -1,10 +1,11 @@
-import { createState } from "./data/createState.js";
+import { createState } from './data/createState.js';
 // import { createCardComponent } from "./ui/card.js";
 // import { addCard } from "./data/actions.js";
-import {createHeaderComponent} from "./ui/header.js";
-import {createAddCardComponent} from "./ui/addCard.js";
+import { createHeaderComponent } from './ui/header.js';
+import { createAddCardComponent } from './ui/addCard.js';
+import { createCardList } from './ui/cardList.js';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Example of how we can create app state responsible for holding data
   let appState = createState();
 
@@ -33,10 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
     iconPath: './img/icon-delete.svg',
   });
 
-  const app = document.getElementById("app") as HTMLDivElement;
+  const cardList = createCardList({
+    containerClass: 'cardlist__container',
+    listClass: 'cardlist__list',
+    listElementClass: 'cardlist__element',
+  });
+
+  const app = document.getElementById('app') as HTMLDivElement;
 
   app.appendChild(header.render());
-  app.appendChild(newCard.render());
+  app.appendChild(cardList.render());
+  // app.appendChild(newCard.render());
 
   console.log(`You have ${appState.flashcards.length} card/s.`);
 });
