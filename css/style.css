@@ -179,4 +179,12 @@
   cursor: pointer;
 }
 
+.cardlist__container {
+  margin: 0 auto;
+}
+
+.cardlist__list {
+  list-style: none;
+}
+
 /*# sourceMappingURL=style.css.map */

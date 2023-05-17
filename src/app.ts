@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   app.appendChild(header.render());
   app.appendChild(cardList.render());
-  // app.appendChild(newCard.render());
+  cardList.render().appendChild(newCard.render());
 
   console.log(`You have ${appState.flashcards.length} card/s.`);
 });
