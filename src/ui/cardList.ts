@@ -19,7 +19,7 @@ export const createCardList = (
   cardList.appendChild(listElement);
 
   const render = () => {
-    return cardList;
+    return listContainer;
   };
 
   return {

@@ -1,5 +1,5 @@
 import { createState } from './data/createState.js';
-// import { createCardComponent } from "./ui/card.js";
+import { createCardComponent } from './ui/card.js';
 // import { addCard } from "./data/actions.js";
 import { createHeaderComponent } from './ui/header.js';
 import { createAddCardComponent } from './ui/addCard.js';
@@ -40,11 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
     listElementClass: 'cardlist__element',
   });
 
+  const singleCard = createCardComponent({
+    front: 'el corazon',
+    back: 'serce',
+    iconPath: './img/icon-edit.svg',
+    editButtonClass: 'card__edit',
+  });
+
   const app = document.getElementById('app') as HTMLDivElement;
 
   app.appendChild(header.render());
   app.appendChild(cardList.render());
-  cardList.render().appendChild(newCard.render());
+  cardList.render().appendChild(singleCard);
 
   console.log(`You have ${appState.flashcards.length} card/s.`);
 });

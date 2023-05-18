@@ -187,4 +187,42 @@
   list-style: none;
 }
 
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card {
+  width: 343px;
+  height: 147px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 20px 34px rgba(152, 163, 207, 0.3);
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.6s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.card__edit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.card__edit:hover {
+  transform: scale(0.95);
+}
+
 /*# sourceMappingURL=style.css.map */
